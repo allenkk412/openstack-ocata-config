@@ -4,17 +4,20 @@
 ##############            Version： Ocata         #################
 
 #### Prerequisites
-# mysql -u root --password=123
-# mysql> CREATE DATABASE nova_api;
-# mysql> CREATE DATABASE nova;
-# mysql> GRANT ALL PRIVILEGES ON nova_api.* TO 'nova'@'localhost' \
-#   IDENTIFIED BY '123';
-# mysql> GRANT ALL PRIVILEGES ON nova_api.* TO 'nova'@'%' \
-#   IDENTIFIED BY '123';
-# mysql> GRANT ALL PRIVILEGES ON nova.* TO 'nova'@'localhost' \
-#   IDENTIFIED BY '123';
-# mysql> GRANT ALL PRIVILEGES ON nova.* TO 'nova'@'%' \
-#   IDENTIFIED BY '123';
+# mysql -u root -p123
+# MariaDB [(none)]> CREATE DATABASE nova_api;
+# MariaDB [(none)]> CREATE DATABASE nova;
+# MariaDB [(none)]> CREATE DATABASE nova_cell0;
+#
+# MariaDB [(none)]> GRANT ALL PRIVILEGES ON nova_api.* TO 'nova'@'localhost' IDENTIFIED BY '123';
+# MariaDB [(none)]> GRANT ALL PRIVILEGES ON nova_api.* TO 'nova'@'%' IDENTIFIED BY '123';
+#
+# MariaDB [(none)]> GRANT ALL PRIVILEGES ON nova.* TO 'nova'@'localhost' IDENTIFIED BY '123';
+# MariaDB [(none)]> GRANT ALL PRIVILEGES ON nova.* TO 'nova'@'%' IDENTIFIED BY '123';
+#
+# MariaDB [(none)]> GRANT ALL PRIVILEGES ON nova_cell0.* TO 'nova'@'localhost' IDENTIFIED BY '123';
+# MariaDB [(none)]> GRANT ALL PRIVILEGES ON nova_cell0.* TO 'nova'@'%' IDENTIFIED BY '123';
+
 
 . admin-openrc
 openstack user create --domain default nova --password 123

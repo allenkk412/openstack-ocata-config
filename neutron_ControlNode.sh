@@ -4,12 +4,10 @@
 ##############            Version： Ocata        #################
 
 #### Prerequisites
-# mysql -u root --password=123
+# mysql -u root -p123
 # mysql> CREATE DATABASE neutron;
-# mysql> GRANT ALL PRIVILEGES ON neutron.* TO 'neutron'@'localhost' \
-#   IDENTIFIED BY '123';
-# mysql> GRANT ALL PRIVILEGES ON neutron.* TO 'neutron'@'%' \
-#   IDENTIFIED BY '123';
+# mysql> GRANT ALL PRIVILEGES ON neutron.* TO 'neutron'@'localhost' IDENTIFIED BY '123';
+# mysql> GRANT ALL PRIVILEGES ON neutron.* TO 'neutron'@'%' IDENTIFIED BY '123';
 
 . admin-openrc
 
@@ -23,7 +21,7 @@ openstack endpoint create --region RegionOne network internal http://controller:
 openstack endpoint create --region RegionOne network admin http://controller:9696
 
 #### 配置网络选项2：Self-service networks
-yum install -y openstack-neutron openstack-neutron-ml2 neutron-openvswitch-agent ebtables
+yum install -y openstack-neutron openstack-neutron-ml2 openstack-neutron-openvswitch ebtables
 
 # 修改neutron的配置文件 /etc/neutron/neutron.conf
 cp /etc/neutron/neutron.conf /etc/neutron/neutron.conf.bk
